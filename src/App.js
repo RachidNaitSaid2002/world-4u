@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Nav from './Nav-bar-compenent/navbar';
+import Home from './Pages/Home_page';
+import Detail from './Detail-country/detail';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
+
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false);
+    }, 4500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {showLoader &&
+        <div className='App'>
+          <span class="loader"></span><br />
+          <h2>World-4U</h2>
+        </div>}
+
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/Detail/:name' element={<Detail />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

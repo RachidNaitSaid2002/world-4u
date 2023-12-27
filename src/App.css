@@ -1,38 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Orbitron&family=Ubuntu:wght@300&display=swap');
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  animation :6s displ  ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.App h2{
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ .loader {
+  position: relative;
+  width: 120px;
+  height: 140px;
+  background-image: radial-gradient(circle 30px, #000000 100%, transparent 0),
+  radial-gradient(circle 5px, #000000 100%, transparent 0),
+  radial-gradient(circle 5px, #000000 100%, transparent 0),
+  linear-gradient(#000000 20px, transparent 0);
+  background-position: center 127px , 94px 102px , 16px 18px, center 114px;
+  background-size: 60px 60px, 10px 10px , 10px 10px , 4px 14px;
+  background-repeat: no-repeat;
+  z-index: 10;
+  perspective: 500px;
 }
+.loader::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius:50%;
+  border: 3px solid #000000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%) rotate(-45deg);
+  border-right-color: transparent;
+  box-sizing: border-box;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  transform: translate(-50%, -55%) rotate(-45deg) rotateY(0deg) ;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  border: 7px solid #595959;
+  border-radius:50%;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+to{transform: translate(-50%, -55%) rotate(-45deg) rotateY(360deg)   }
+}
+
+@keyframes displ {
+  0% {opacity: 1;}
+  10%{opacity:1;}
+  20% {opacity: 1;}
+  30%{opacity:1;}
+  40% {opacity: 1;}
+  50%{opacity:0.9;}
+  60% {opacity:0.7;}
+  70%{opacity:0.5;}
+  80%{opacity:0.3;}
+  90%{opacity:0.1;}
+  100%{opacity:0;}
+}
+   

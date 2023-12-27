@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
+
+.search_bar {
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .input_text {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            width: 50%;
+            border-radius: 0.25rem;
+            appearance: none;
+            outline: 0;
+            padding: 0.75rem;
+            font-size: 14px;
+            letter-spacing: 2px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            margin-right: 2rem;
+            border: none;
+        }
+    }
+
+    .input_select {
+        width: 40%;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2rem;
+
+        .select-box {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 2rem auto;
+            font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+            font-size: 18px;
+            @media (min-width: 768px) {
+                width: 70%;
+            }
+
+            @media (min-width: 992px) {
+                width: 50%;
+            }
+
+            @media (min-width: 1200px) {
+                width: 30%;
+            }
+
+            &__current {
+                position: relative;
+                cursor: pointer;
+                outline: none;
+                color: #000000;
+
+                &:focus {
+                    &+.select-box__list {
+                        opacity: 1;
+
+                        animation-name: none;
+
+                        .select-box__option {
+                            cursor: pointer;
+                        }
+                    }
+
+                    .select-box__icon {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+            }
+
+            &__icon {
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                width: 9%;
+                opacity: 0.3;
+                transition: 0.2s ease;
+            }
+
+            &__value {
+                display: flex;
+            }
+
+            &__input {
+                display: none;
+                border-right: #000;
+
+                &:checked+.select-box__input-text {
+                    display: block;
+                    
+                }
+            }
+
+            &__input-text {
+                display: block;
+                width: 90%;
+                margin: 0;
+                padding: 10px;
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                border-radius: 0.25rem;
+            }
+
+            &__list {
+                position: absolute;
+                width: 100%;
+                padding: 0;
+                list-style: none;
+                opacity: 0;
+                animation-name: HideList;
+                animation-duration: 0.5s;
+                animation-delay: 0.5s;
+                animation-fill-mode: forwards;
+                animation-timing-function: step-start;
+                box-shadow: rgba(255, 255, 255, 0.449) 0px 5px 15px;
+            }
+
+            &__option {
+                display: block;
+                padding: 15px;
+                background-color: #fff;
+
+                &:hover,
+                &:focus {
+                    color: #546c84;
+                    background-color: #fbfbfb;
+                }
+            }
+        }
+
+        @keyframes HideList {
+            from {
+                transform: scaleY(1);
+            }
+
+            to {
+                transform: scaleY(0);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .search_bar {
+        .input_text {
+            width: 100% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            input {
+                width: 50%;
+                appearance: none;
+                outline: none;
+                padding: 0.65rem;
+                font-size: 14px;
+                letter-spacing: 2px;
+                border-radius: 0.25em;
+                border: none !important;
+                margin-right: 2rem;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 1rem;
+                background-color: white;
+                border-radius: 0.25em;
+                border: 1px solid #000;
+                cursor: pointer;
+
+                span {
+                    font-size: 20px;
+                }
+
+                &:hover {
+                    background-color: #000;
+                    color: white;
+                }
+            }
+        }
+
+       
+    }
+}

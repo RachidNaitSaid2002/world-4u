@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 25px ;
+    padding-bottom: 5px ;
+    .brand{
+        color: rgb(65, 65, 65);
+        font-size: 140%;
+        letter-spacing: 2px;
+        line-height: 20px;
+    }
+}
