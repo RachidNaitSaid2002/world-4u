@@ -23,7 +23,7 @@
   font-size: 25px;
 }
 
- .loader {
+ .App .loader {
   position: relative;
   width: 120px;
   height: 140px;
@@ -36,6 +36,7 @@
   background-repeat: no-repeat;
   z-index: 10;
   perspective: 500px;
+  animation :6s displ  ease-in-out;
 }
 .loader::before {
   content: '';

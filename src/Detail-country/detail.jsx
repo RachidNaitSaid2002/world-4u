@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 const Detail = () => {
     const { name } = useParams();
     const [countryInfo, setCountryInfo] = useState(null);
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -12,6 +13,7 @@ const Detail = () => {
                 const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
                 const data = await response.json();
                 setCountryInfo(data[0]);
+                setLoading(false)
             } catch (error) {
                 console.error('Error fetching content:', error);
             }
@@ -24,7 +26,7 @@ const Detail = () => {
             <div className="head"> <Link to='/'className='btn'> <span class="material-symbols-outlined">
                 arrow_back
             </span> Back </Link> </div>
-            <div className="section">
+            {loading ? <div className='loading'> <span class="loader"></span> </div> :   <div className="section">
                 {countryInfo && typeof countryInfo === 'object' && (
                     <>
                         <div className="left">
@@ -54,7 +56,8 @@ const Detail = () => {
                         </div>
                     </>
                 )}
-            </div>
+            </div>}
+          
         </>
     );
 };
