@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 const Detail = () => {
     const { name } = useParams();
     const [countryInfo, setCountryInfo] = useState(null);
-    const [loading,setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,10 +23,10 @@ const Detail = () => {
 
     return (
         <>
-            <div className="head"> <Link to='/'className='btn'> <span class="material-symbols-outlined">
+            <div className="head"> <Link to='/' className='btn'> <span class="material-symbols-outlined">
                 arrow_back
             </span> Back </Link> </div>
-            {loading ? <div className='loading'> <span class="loader"></span> </div> :   <div className="section">
+            {loading ? <div className='loading'> <span class="loader"></span> </div> : <div className="section">
                 {countryInfo && typeof countryInfo === 'object' && (
                     <>
                         <div className="left">
@@ -57,7 +57,7 @@ const Detail = () => {
                     </>
                 )}
             </div>}
-          
+
         </>
     );
 };

@@ -38,7 +38,7 @@ const Card_c = ({ region, country }) => {
       <div className="all">
         {content &&
           content.map((item) => {
-            if (item.flags.png != null) {
+            if (item.name.common !== 'Israel') {
               return (
                 <div className="card" key={item.name.common}>
                   <div className="head_C">
@@ -61,7 +61,27 @@ const Card_c = ({ region, country }) => {
                 </div>
               );
             }
-            return null; // Added a null return for the else case
+            return (
+              <div className="card" key={item.name.common}>
+              <div className="head_C" style={{height : '50%'}}>
+                <img src="https://cdnuploads.aa.com.tr/uploads/Contents/2021/06/10/thumbs_b_c_9505e558c78af50b7a55dcb8d9565704.jpg?v=234436" alt="" />
+              </div>
+              <div className="content">
+              <span className="title">
+                  Free Palastain
+                </span>
+                <h4>
+                  Population : <span>0</span>
+                </h4>
+                <h4>
+                  Region : <span>0</span>
+                </h4>
+                <h4>
+                  Capital : <span>0</span>
+                </h4>
+              </div>
+            </div>
+            ); 
           })}
       </div>
     </>
